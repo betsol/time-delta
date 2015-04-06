@@ -147,7 +147,7 @@ THE SOFTWARE.
 
   [changelog]: changelog.md
   [contributors]: https://github.com/betsol/time-delta/graphs/contributors
-  [so-ask]: http://stackoverflow.com/questions/ask?tags=angularjs,javascript,datetime,internationalization
+  [so-ask]: http://stackoverflow.com/questions/ask?tags=javascript,node.js,time,datediff
   [email]: mailto:s.fomin@betsol.ru
   [new-issue]: https://github.com/betsol/time-delta/issues/new
   [locales]: docs/locales.md

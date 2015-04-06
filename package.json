@@ -1,6 +1,6 @@
 {
   "name": "time-delta",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Formats difference between two dates as a human-readable string in almost any language",
   "repository": "betsol/time-delta",
   "author": "Slava Fomin II <s.fomin@betsol.ru>",
@@ -9,6 +9,17 @@
     "url": "https://github.com/betsol/time-delta/issues"
   },
   "homepage": "https://github.com/betsol/time-delta",
+  "keywords": [
+    "time",
+    "date",
+    "difference",
+    "diff",
+    "format",
+    "internationalization",
+    "i18n",
+    "translation",
+    "locales"
+  ],
   "files": [
     "lib/",
     "README.md",
