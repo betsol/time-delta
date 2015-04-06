@@ -152,7 +152,7 @@ THE SOFTWARE.
   [new-issue]: https://github.com/betsol/time-delta/issues/new
   [locales]: docs/locales.md
   [demo]: demo.js
-  [config]: demo.js
+  [config]: https://github.com/betsol/time-delta/blob/master/lib/time-delta.js#L23
   [tests]: test/tests.js
   [lib-cldr]: https://github.com/papandreou/node-cldr
   [repo-gh]: https://github.com/betsol/time-delta
