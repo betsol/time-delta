@@ -1,5 +1,8 @@
 # Node Time Delta
 
+[![npm version](https://badge.fury.io/js/time-delta.svg)][repo-npm]
+[![Build Status](https://travis-ci.org/betsol/time-delta.svg)][travis]
+
 Formats difference between two dates as a human-readable string in almost any language.
 
 Examples:
@@ -14,7 +17,7 @@ Examples:
 
 ## Features
 
-- Supports ~688 locales by means of [CLDR][lib-cldr]. See the [full list][locales].
+- Supports ~688 locales by means of [CLDR][lib-cldr] (built-in). See the [full list][locales]
 - Provides three different time unit formats for each locale (`long`, `short`, `narrow`)
 - Falls back to another unit type format if preferred one is not present in the target locale
 
@@ -64,9 +67,9 @@ The library accepts the following [configuration object][config]:
 | span                | `integer`                          | `2`                                         | How much time units to include in the result
 | delimiter           | `string`                           | `', '`                                      | Delimiter to use between time units
 | unitType            | `string`                           | `'long'`                                    | Unit type format. One of `long`, `short` or `narrow`
-| unitTypeLookupOrder | `array`                            | `['long', 'short', 'narrow']`               | Unit type lookup order (used for fallback when preferred type is not present in the locale)
+| unitTypeLookupOrder | `array`                            | `['long', 'short', 'narrow']`               | Unit type lookup order (used for fallback)
 
-You can pass it to factory method during instantiation:
+You can pass config to factory method during instantiation:
 
 `var instance = timeDelta.create(myInstanceConfig);`
 
@@ -87,7 +90,12 @@ This library was made possible by [it's contributors][contributors].
 
 ## Developer guide
 
-To do.
+Fork, clone, `npm install`.
+
+- Use `make locales` to build the locales
+- Use `make test` to test the library
+
+If you do a PR, make sure to cover it with [tests][tests].
 
 
 ## Feedback
@@ -102,6 +110,14 @@ link via [E-Mail][email]. I will be glad to help.
 Have any ideas or propositions? Feel free to contact me by [E-Mail][email].
 
 Cheers!
+
+
+## Support
+
+If you like this library consider to add star on [GitHub repository][repo-gh]
+and on [NPM][repo-npm].
+
+Thank you!
 
 
 ## License
@@ -137,4 +153,8 @@ THE SOFTWARE.
   [locales]: docs/locales.md
   [demo]: demo.js
   [config]: demo.js
+  [tests]: test/tests.js
   [lib-cldr]: https://github.com/papandreou/node-cldr
+  [repo-gh]: https://github.com/betsol/time-delta
+  [repo-npm]: https://www.npmjs.com/package/time-delta
+  [travis]: https://travis-ci.org/betsol/time-delta
