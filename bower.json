@@ -1,0 +1,13 @@
+{
+  "name": "time-delta",
+  "version": "0.0.2",
+  "homepage": "https://github.com/betsol/time-delta",
+  "authors": [
+    "Slava Fomin II <s.fomin@betsol.ru>"
+  ],
+  "description": "Formats difference between two dates as a human-readable string in almost any language",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "~3"
+  }
+}

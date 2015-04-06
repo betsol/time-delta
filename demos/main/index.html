@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <h1>Time Delta — Main Demo</h1>
+
+    <p><a href="../">&leftarrow; See other demos</a></p>
+    <hr>
+
+    <form id="dates-form">
+        <div class="form-group">
+            <label for="date-1">Date #1</label>
+            <input id="date-1" class="form-control" type="datetime" value="2015-04-01T21:00:00">
+        </div>
+        <div class="form-group">
+            <label for="date-2">Date #2</label>
+            <input id="date-2" class="form-control" type="datetime" value="2015-04-01T22:17:10">
+        </div>
+        <button type="submit" class="btn btn-default">Format</button>
+    </form>
+
+    <hr>
+
+    <p>Date difference is: <span id="date-difference"></span></p>
+
+    <!-- Scripts -->
+    <script src="../vendor/time-delta/time-delta.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

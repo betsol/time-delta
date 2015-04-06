@@ -38,6 +38,28 @@
     "cldr": "~3",
     "expect.js": "^0.3.1",
     "mocha": "^2.2.1",
-    "node-beautify": "0.0.2"
+    "node-beautify": "0.0.2",
+    "browserify": "^9.0.7",
+    "browserify-shim": "^3.8.3",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-streamify": "0.0.5",
+    "gulp-uglify": "^1.1.0",
+    "run-sequence": "^1.0.2",
+    "spa-server": "^0.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "yargs": "^3.6.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+  },
+  "buildOptions": {
+    "sourceDir": "lib",
+    "targetDir": "dist",
+    "dist": false
   }
 }
