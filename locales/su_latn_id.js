@@ -1,8 +1,6 @@
 module.exports = {
   "id": "su_latn_id",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

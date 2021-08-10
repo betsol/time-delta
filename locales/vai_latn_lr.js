@@ -1,8 +1,6 @@
 module.exports = {
   "id": "vai_latn_lr",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

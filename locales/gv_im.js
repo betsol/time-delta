@@ -1,8 +1,6 @@
 module.exports = {
   "id": "gv_im",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

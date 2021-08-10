@@ -2,7 +2,6 @@ module.exports = {
   "id": "smn_fi",
   "data": {
     "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

@@ -1,8 +1,6 @@
 module.exports = {
   "id": "yav_cm",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

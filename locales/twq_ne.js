@@ -1,8 +1,6 @@
 module.exports = {
   "id": "twq_ne",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

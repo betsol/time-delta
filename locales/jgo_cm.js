@@ -23,7 +23,6 @@ module.exports = {
         "other": "{0} minút"
       }
     },
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

@@ -1,8 +1,6 @@
 module.exports = {
   "id": "bo_in",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

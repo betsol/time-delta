@@ -1,8 +1,6 @@
 module.exports = {
   "id": "tzm_ma",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

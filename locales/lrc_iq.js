@@ -2,7 +2,6 @@ module.exports = {
   "id": "lrc_iq",
   "data": {
     "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

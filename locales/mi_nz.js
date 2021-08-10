@@ -1,8 +1,6 @@
 module.exports = {
   "id": "mi_nz",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

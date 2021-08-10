@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 
-const { writeFile } = require('fs');
+const { writeFile, unlink } = require('fs');
 const { promisify } = require('util');
 const { resolve: resolvePath } = require('path');
 
 const $writeFile = promisify(writeFile);
+const $unlink = promisify(unlink);
 
 const cldr = require('cldr');
-const { js: beautifyJs } = require('js-beautify');
 const pLimit = require('p-limit');
 const del = require('del');
+const { js: beautifyJs } = require('js-beautify');
 
 
 const concurrency = 16;
 const destinationPath = resolvePath(`${__dirname}/../locales`);
+const { localeIds } = cldr;
 
 
 (async function buildLocales() {
@@ -27,7 +29,7 @@ const destinationPath = resolvePath(`${__dirname}/../locales`);
 
   const limit = pLimit(concurrency);
 
-  const tasks = cldr.localeIds.map(localeId => (
+  const tasks = localeIds.map(localeId => (
     limit(() => {
       console.log(`Processing locale: ${localeId}`);
       const data = extractLocaleData(localeId);
@@ -73,18 +75,27 @@ async function writeLocaleFile(locale, data) {
 
 async function buildListOfLocales() {
 
-  let source =
-    '# List of locales supported by Time Delta' + "\n\n" +
-    'Right now **' + locales.length + '** locales are supported.' + "\n\n" +
-    'Locale |' + "\n" +
-    '--- |' + "\n"
-  ;
+  const outputFile = resolvePath(`${__dirname}/../docs/locales.md`);
 
-  locales.forEach(function (locale) {
-    source += '[' + locale + '](../locales/' + locale + '.js)' + ' |' + "\n";
-  });
+  try {
+    await $unlink(outputFile);
 
-  await $writeFile('./docs/locales.md', source);
+  } catch {
+    // Ignoring errors…
+  }
+
+  const lines = [
+    `# List of locales supported by Time Delta\n`,
+    `Right now **${localeIds.length}** locales are supported.\n`,
+    `Locale |`,
+    `--- |`,
+  ];
+
+  lines.push(...localeIds.map(
+    localeId => `[${localeId}](../locales/${localeId}.js) |`
+  ));
+
+  await $writeFile(outputFile, lines.join("\n"));
 
   console.log('List of locales created');
 
@@ -113,20 +124,21 @@ function extractLocaleData(locale) {
   const data = {};
   const unitPatterns = cldr.extractUnitPatterns(locale);
 
-  types.forEach(function (type) {
-    fields.forEach(function (field) {
-      const key1 = field[0];
-      const key2 = field[1];
-      if ('undefined' === typeof data[type]) {
-        data[type] = {};
-      }
-      if ('undefined' === typeof unitPatterns[type]) {
-        // Continue
-        return;
-      }
+  for (const type of types) {
+
+    if (!unitPatterns[type]) {
+      continue;
+    }
+
+    data[type] = (data[type] || {});
+
+    for (const field of fields) {
+      const [key1, key2] = field;
       data[type][key1] = unitPatterns[type].unit['duration' + key2];
-    });
-  });
+    }
+
+  }
 
   return data;
+
 }

@@ -1,8 +1,6 @@
 module.exports = {
   "id": "wo_sn",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

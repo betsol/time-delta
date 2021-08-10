@@ -1,8 +1,6 @@
 module.exports = {
   "id": "uz_arab_af",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

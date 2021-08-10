@@ -1,8 +1,6 @@
 module.exports = {
   "id": "kde_tz",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

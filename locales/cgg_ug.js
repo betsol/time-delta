@@ -1,8 +1,6 @@
 module.exports = {
   "id": "cgg_ug",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

@@ -1,8 +1,6 @@
 module.exports = {
   "id": "shi_tfng_ma",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

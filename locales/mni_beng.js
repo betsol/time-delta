@@ -1,8 +1,6 @@
 module.exports = {
   "id": "mni_beng",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

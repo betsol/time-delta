@@ -24,7 +24,6 @@ module.exports = {
         "other": "སྐར་ཆ་ {0}"
       }
     },
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

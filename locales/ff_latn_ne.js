@@ -1,8 +1,6 @@
 module.exports = {
   "id": "ff_latn_ne",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

@@ -31,7 +31,6 @@ module.exports = {
         "other": "{0} सेकं."
       }
     },
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"

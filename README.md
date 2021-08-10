@@ -1,12 +1,12 @@
 
-# Node Time Delta
+# Time Delta
 
 [![npm version](https://badge.fury.io/js/time-delta.svg)][repo-npm]
 [![Build Status](https://api.travis-ci.com/betsol/time-delta.svg?branch=master)][travis]
 
 Formats difference between two dates as a human-readable string in almost any language.
 
-Examples:
+## Example Output
 
 - 2 hours, 17 minutes
 - 2 hr, 17 min, 10 sec
@@ -18,8 +18,9 @@ Examples:
 
 ## Features
 
-- Supports 715 locales by means of [CLDR][lib-cldr] (built-in). See the [full list][locales]
+- Supports 789 locales by means of [CLDR][lib-cldr] (built-in). See the [full list][locales]
 - Provides three different time unit formats for each locale: `long`, `short`, `narrow`
+  (when supported by specific CLDR locale)
 - Falls back to another unit type format if preferred one is not present in the target locale
 - Supports both Node.js and browser environments
 - All formatting aspects are customizable

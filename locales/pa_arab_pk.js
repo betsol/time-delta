@@ -1,8 +1,6 @@
 module.exports = {
   "id": "pa_arab_pk",
   "data": {
-    "long": {},
-    "narrow": {},
     "short": {
       "years": {
         "other": "{0} y"
