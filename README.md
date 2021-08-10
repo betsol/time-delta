@@ -3,6 +3,7 @@
 
 [![npm version](https://badge.fury.io/js/time-delta.svg)][repo-npm]
 [![Build Status](https://api.travis-ci.com/betsol/time-delta.svg?branch=master)][travis]
+[![CodeClimate maintainability](https://api.codeclimate.com/v1/badges/cbfb83afc478ed41797a/maintainability)][code-climate]
 
 Formats difference between two dates as a human-readable string in almost any language.
 
@@ -195,3 +196,4 @@ THE SOFTWARE.
   [repo-gh]: https://github.com/betsol/time-delta
   [repo-npm]: https://www.npmjs.com/package/time-delta
   [travis]: https://travis-ci.com/github/betsol/time-delta
+  [code-climate]: https://codeclimate.com/github/betsol/time-delta/maintainability
