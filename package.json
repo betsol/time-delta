@@ -22,6 +22,7 @@
   ],
   "files": [
     "lib/",
+    "locales/",
     "README.md",
     "changelog.md",
     "index.js"
