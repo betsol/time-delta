@@ -1,6 +1,6 @@
 {
   "name": "time-delta",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Formats difference between two dates as a human-readable string in almost any language",
   "scripts": {
     "build": "npm run build-locales",
