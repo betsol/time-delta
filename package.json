@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm run build-locales",
     "build-locales": "./bin/build-locales.js",
+    "prepublishOnly": "npm run build && npm run test",
     "test": "mocha"
   },
   "license": "MIT",
