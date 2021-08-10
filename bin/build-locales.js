@@ -1,97 +1,93 @@
 #!/usr/bin/env node
 
-var cldr = require('cldr');
-var fs = require('fs');
-var beautify = require('node-beautify').beautifyJs;
-var async = require('async');
+const { writeFile } = require('fs');
+const { promisify } = require('util');
+const { resolve: resolvePath } = require('path');
 
-var tasks = [];
-var supportedLocales = [];
+const $writeFile = promisify(writeFile);
 
-cldr.localeIds.some(function (locale) {
+const cldr = require('cldr');
+const { js: beautifyJs } = require('js-beautify');
+const pLimit = require('p-limit');
+const del = require('del');
 
-  console.log('Loading data for locale: ' + locale);
 
-  var data = extractLocaleData(locale);
+const concurrency = 16;
+const destinationPath = resolvePath(`${__dirname}/../locales`);
 
-  // @todo: make sure that locale is actually supported.
-  // Right now CLDR module always returns some data
-  // even for missing locale.
-  // https://github.com/papandreou/node-cldr/issues/23
-  supportedLocales.push(locale);
 
-  // Adding task to a list.
-  (function (locale, data) {
-    tasks.push(function (callback) {
-      writeDataToFileForLocale(locale, data, callback);
-    });
-  })(locale, data);
+(async function buildLocales() {
 
-});
+  // Deleting content of the destination directory,
+  // but not the directory itself
+  await del([
+    `${destinationPath}/**`,
+    `!${destinationPath}/`
+  ]);
 
-// Running all tasks in parallel.
-async.parallel(tasks, function (error, results) {
-  if (error) {
-    console.log(error);
-  } else {
-    buildListOfSupportedLocales(function (error) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Locales built successfully');
-      }
-    });
-  }
-});
+  const limit = pLimit(concurrency);
+
+  const tasks = cldr.localeIds.map(localeId => (
+    limit(() => {
+      console.log(`Processing locale: ${localeId}`);
+      const data = extractLocaleData(localeId);
+      writeLocaleFile(localeId, data);
+    })
+  ));
+
+  // Running tasks concurrently
+  await Promise.all(tasks);
+
+  await buildListOfLocales();
+
+  console.log('Locales built successfully');
+
+})();
 
 
 //===========//
 // FUNCTIONS //
 //===========//
 
-function writeDataToFileForLocale (locale, data, callback) {
+async function writeLocaleFile(locale, data) {
 
-  // Building the source.
-  var source =
-    "var timeDelta = require('../lib/time-delta.js');" +
-    "timeDelta.addLocale('" + locale + "', " + JSON.stringify(data) + ");"
-  ;
+  // Building the source
+  let source = (
+    `module.exports = ${JSON.stringify({ id: locale, data })};`
+  );
 
-  // Beautifying the source.
-  source = beautify(source);
-
-  // Writing source to a file.
-  var path = './locales/' + locale + '.js';
-  fs.writeFile(path, source, function (error) {
-    if (error) {
-      callback(error);
-    }
-    console.log('Data written to file for locale: ' + locale);
-    callback();
+  source = beautifyJs(source, {
+    indent_size: 2,
+    end_with_newline: true,
+    preserve_newlines: true,
   });
+
+  const outputPath = `${destinationPath}/${locale}.js`;
+
+  // Writing source to a file
+  await $writeFile(outputPath, source);
+
+  console.log('Data written to file for locale: ' + locale);
 
 }
 
-function buildListOfSupportedLocales (callback) {
+async function buildListOfLocales() {
 
-  var source =
+  let source =
     '# List of locales supported by Time Delta' + "\n\n" +
-    'Right now **' + supportedLocales.length + '** locales are supported.' + "\n\n" +
+    'Right now **' + locales.length + '** locales are supported.' + "\n\n" +
     'Locale |' + "\n" +
     '--- |' + "\n"
   ;
 
-  supportedLocales.forEach(function (locale) {
+  locales.forEach(function (locale) {
     source += '[' + locale + '](../locales/' + locale + '.js)' + ' |' + "\n";
   });
 
-  fs.writeFile('./docs/locales.md', source, function (error) {
-    if (error) {
-      callback(error);
-    }
-    console.log('List of locales created');
-    callback();
-  });
+  await $writeFile('./docs/locales.md', source);
+
+  console.log('List of locales created');
+
 }
 
 /**
@@ -100,32 +96,32 @@ function buildListOfSupportedLocales (callback) {
  * @param {string} locale
  * @returns {object}
  */
-function extractLocaleData (locale) {
+function extractLocaleData(locale) {
 
-  var types = ['long', 'narrow', 'short'];
+  const types = ['long', 'narrow', 'short'];
 
-  var fields = [
-    ['years',   'Year'],
-    ['months',  'Month'],
-    ['weeks',   'Week'],
-    ['days',    'Day'],
-    ['hours',   'Hour'],
+  const fields = [
+    ['years', 'Year'],
+    ['months', 'Month'],
+    ['weeks', 'Week'],
+    ['days', 'Day'],
+    ['hours', 'Hour'],
     ['minutes', 'Minute'],
     ['seconds', 'Second']
   ];
 
-  var data = {};
-  var unitPatterns = cldr.extractUnitPatterns(locale);
+  const data = {};
+  const unitPatterns = cldr.extractUnitPatterns(locale);
 
   types.forEach(function (type) {
     fields.forEach(function (field) {
-      var key1 = field[0];
-      var key2 = field[1];
+      const key1 = field[0];
+      const key2 = field[1];
       if ('undefined' === typeof data[type]) {
         data[type] = {};
       }
       if ('undefined' === typeof unitPatterns[type]) {
-        // Continue.
+        // Continue
         return;
       }
       data[type][key1] = unitPatterns[type].unit['duration' + key2];

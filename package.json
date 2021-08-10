@@ -1,43 +1,58 @@
 {
   "name": "time-delta",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Formats difference between two dates as a human-readable string in almost any language",
-  "repository": "betsol/time-delta",
-  "author": "Slava Fomin II <s.fomin@betsol.ru>",
+  "scripts": {
+    "build": "npm run build-locales",
+    "build-locales": "./bin/build-locales.js",
+    "test": "NODE_ENV=test mocha --reporter spec"
+  },
   "license": "MIT",
+  "author": "Slava Fomin II <slava@fomin.io>",
+  "repository": "https://github.com/betsol/time-delta",
+  "homepage": "https://github.com/betsol/time-delta",
   "bugs": {
     "url": "https://github.com/betsol/time-delta/issues"
   },
-  "homepage": "https://github.com/betsol/time-delta",
-  "keywords": [
-    "time",
-    "date",
-    "difference",
-    "diff",
-    "format",
-    "internationalization",
-    "i18n",
-    "translation",
-    "locales"
-  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
+    "docs/",
     "lib/",
+    "locales/",
     "README.md",
-    "changelog.md",
+    "CHANGELOG.md",
+    "index.d.ts",
     "index.js"
   ],
-  "scripts": {
-    "test": "make test"
-  },
+  "keywords": [
+    "cldr",
+    "date",
+    "delta",
+    "diff",
+    "difference",
+    "format",
+    "i18n",
+    "internationalization",
+    "l10n",
+    "locales",
+    "localization",
+    "time",
+    "translation"
+  ],
   "dependencies": {
-    "numerous": "0.0.3",
-    "xtend": "^4.0.0"
+    "is-node": "^1.0.2",
+    "numerous": "^1.0.3"
   },
   "devDependencies": {
-    "async": "^0.9.0",
-    "cldr": "~3",
+    "cldr": "^7.1.0",
+    "del": "^6.0.0",
     "expect.js": "^0.3.1",
-    "mocha": "^2.2.1",
-    "node-beautify": "0.0.2"
+    "js-beautify": "^1.14.0",
+    "mocha": "^9.0.3",
+    "p-limit": "^3.1.0"
   }
 }

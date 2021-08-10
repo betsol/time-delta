@@ -1,5 +1,7 @@
+
+/.idea/
+/node_modules/
+
 *.log
 Thumbs.db
 .DS_Store?
-/.idea/
-/node_modules

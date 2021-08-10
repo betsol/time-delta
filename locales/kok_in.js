@@ -1,28 +1,74 @@
-var timeDelta = require('../lib/time-delta.js');
-timeDelta.addLocale('kok_in', {
-    "long": {},
-    "narrow": {},
+module.exports = {
+  "id": "kok_in",
+  "data": {
+    "long": {
+      "years": {
+        "other": "{0} वर्सां"
+      },
+      "months": {
+        "other": "{0} म्हयने"
+      },
+      "weeks": {
+        "other": "{0} सप्तक"
+      },
+      "days": {
+        "other": "{0} दीस"
+      },
+      "hours": {
+        "other": "{0} वरां"
+      },
+      "minutes": {
+        "other": "{0} मिण्टां"
+      },
+      "seconds": {
+        "other": "{0} सेकंदांनी"
+      }
+    },
+    "narrow": {
+      "years": {
+        "other": "{0}व"
+      },
+      "months": {
+        "other": "{0}म्ह"
+      },
+      "weeks": {
+        "other": "{0}स"
+      },
+      "days": {
+        "other": "{0}दी"
+      },
+      "hours": {
+        "other": "{0} व"
+      },
+      "minutes": {
+        "other": "{0} मि"
+      },
+      "seconds": {
+        "other": "{0}से"
+      }
+    },
     "short": {
-        "years": {
-            "other": "{0} y"
-        },
-        "months": {
-            "other": "{0} m"
-        },
-        "weeks": {
-            "other": "{0} w"
-        },
-        "days": {
-            "other": "{0} d"
-        },
-        "hours": {
-            "other": "{0} h"
-        },
-        "minutes": {
-            "other": "{0} min"
-        },
-        "seconds": {
-            "other": "{0} s"
-        }
+      "years": {
+        "other": "{0} वर्सां"
+      },
+      "months": {
+        "other": "{0} म्हयने"
+      },
+      "weeks": {
+        "other": "{0} सप्तक"
+      },
+      "days": {
+        "other": "{0} दीस"
+      },
+      "hours": {
+        "other": "{0} वर"
+      },
+      "minutes": {
+        "other": "{0} मिनीट"
+      },
+      "seconds": {
+        "other": "{0} सेकंद"
+      }
     }
-});
+  }
+};

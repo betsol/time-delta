@@ -1,93 +1,30 @@
-var timeDelta = require('../lib/time-delta.js');
-timeDelta.addLocale('pa_arab', {
-    "long": {
-        "years": {
-            "one": "{0} ਸਾਲ",
-            "other": "{0} ਸਾਲ"
-        },
-        "months": {
-            "one": "{0} ਮਹੀਨਾ",
-            "other": "{0} ਮਹੀਨੇ"
-        },
-        "weeks": {
-            "one": "{0} ਹਫ਼ਤਾ",
-            "other": "{0} ਹਫ਼ਤੇ"
-        },
-        "days": {
-            "one": "{0} ਦਿਨ",
-            "other": "{0} ਦਿਨ"
-        },
-        "hours": {
-            "one": "{0} ਘੰਟਾ",
-            "other": "{0} ਘੰਟੇ"
-        },
-        "minutes": {
-            "one": "{0} ਮਿੰਟ",
-            "other": "{0} ਮਿੰਟ"
-        },
-        "seconds": {
-            "one": "{0} ਸਕਿੰਟ",
-            "other": "{0} ਸਕਿੰਟ"
-        }
-    },
-    "narrow": {
-        "years": {
-            "one": "{0} ਸਾਲ",
-            "other": "{0} ਸਾਲ"
-        },
-        "months": {
-            "one": "{0} ਮਹੀਨਾ",
-            "other": "{0} ਮਹੀਨੇ"
-        },
-        "weeks": {
-            "one": "{0} ਹਫ਼ਤਾ",
-            "other": "{0} ਹਫ਼ਤੇ"
-        },
-        "days": {
-            "one": "{0} ਦਿਨ",
-            "other": "{0} ਦਿਨ"
-        },
-        "hours": {
-            "one": "{0} ਘੰਟਾ",
-            "other": "{0} ਘੰਟੇ"
-        },
-        "minutes": {
-            "one": "{0} ਮਿੰਟ",
-            "other": "{0} ਮਿੰਟ"
-        },
-        "seconds": {
-            "one": "{0} ਸਕਿੰਟ",
-            "other": "{0} ਸਕਿੰਟ"
-        }
-    },
+module.exports = {
+  "id": "pa_arab",
+  "data": {
+    "long": {},
+    "narrow": {},
     "short": {
-        "years": {
-            "one": "{0} ਸਾਲ",
-            "other": "{0} ਸਾਲ"
-        },
-        "months": {
-            "one": "{0} ਮਹੀਨਾ",
-            "other": "{0} ਮਹੀਨੇ"
-        },
-        "weeks": {
-            "one": "{0} ਹਫ਼ਤਾ",
-            "other": "{0} ਹਫ਼ਤੇ"
-        },
-        "days": {
-            "one": "{0} ਦਿਨ",
-            "other": "{0} ਦਿਨ"
-        },
-        "hours": {
-            "one": "{0} ਘੰਟਾ",
-            "other": "{0} ਘੰਟੇ"
-        },
-        "minutes": {
-            "one": "{0} ਮਿੰਟ",
-            "other": "{0} ਮਿੰਟ"
-        },
-        "seconds": {
-            "one": "{0} ਸਕਿੰਟ",
-            "other": "{0} ਸਕਿੰਟ"
-        }
+      "years": {
+        "other": "{0} y"
+      },
+      "months": {
+        "other": "{0} m"
+      },
+      "weeks": {
+        "other": "{0} w"
+      },
+      "days": {
+        "other": "{0} d"
+      },
+      "hours": {
+        "other": "{0} h"
+      },
+      "minutes": {
+        "other": "{0} min"
+      },
+      "seconds": {
+        "other": "{0} s"
+      }
     }
-});
+  }
+};

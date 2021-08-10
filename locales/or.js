@@ -1,28 +1,95 @@
-var timeDelta = require('../lib/time-delta.js');
-timeDelta.addLocale('or', {
-    "long": {},
-    "narrow": {},
+module.exports = {
+  "id": "or",
+  "data": {
+    "long": {
+      "years": {
+        "one": "{0} ବର୍ଷ",
+        "other": "{0} ବର୍ଷ"
+      },
+      "months": {
+        "one": "{0} ମାସ",
+        "other": "{0} ମାସ"
+      },
+      "weeks": {
+        "one": "{0} ସପ୍ତାହ",
+        "other": "{0} ସପ୍ତାହ"
+      },
+      "days": {
+        "one": "{0} ଦିନ",
+        "other": "{0} ଦିନ"
+      },
+      "hours": {
+        "one": "{0} ଘଣ୍ଟା",
+        "other": "{0} ଘଣ୍ଟା"
+      },
+      "minutes": {
+        "one": "{0} ମିନିଟ୍‌",
+        "other": "{0} ମିନିଟ୍"
+      },
+      "seconds": {
+        "one": "{0} ସେକେଣ୍ଡ",
+        "other": "{0} ସେକେଣ୍ଡ"
+      }
+    },
+    "narrow": {
+      "years": {
+        "one": "{0}ବର୍ଷ",
+        "other": "{0}ବର୍ଷ"
+      },
+      "months": {
+        "one": "{0}ମାସ",
+        "other": "{0}ମାସ"
+      },
+      "weeks": {
+        "one": "{0}ସପ୍",
+        "other": "{0} ସପ୍"
+      },
+      "days": {
+        "one": "{0}ଦିନ",
+        "other": "{0}ଦିନ"
+      },
+      "hours": {
+        "one": "{0}ଘଣ୍ଟା",
+        "other": "{0}ଘଣ୍ଟା"
+      },
+      "minutes": {
+        "one": "{0}ମିନିଟ୍‌",
+        "other": "{0}ମିନିଟ୍‌"
+      },
+      "seconds": {
+        "one": "{0}ସେକ୍",
+        "other": "{0}ସେକ୍"
+      }
+    },
     "short": {
-        "years": {
-            "other": "{0} y"
-        },
-        "months": {
-            "other": "{0} m"
-        },
-        "weeks": {
-            "other": "{0} w"
-        },
-        "days": {
-            "other": "{0} d"
-        },
-        "hours": {
-            "other": "{0} h"
-        },
-        "minutes": {
-            "other": "{0} min"
-        },
-        "seconds": {
-            "other": "{0} s"
-        }
+      "years": {
+        "one": "{0} ବର୍ଷ",
+        "other": "{0} ବର୍ଷ"
+      },
+      "months": {
+        "one": "{0} ମାସ",
+        "other": "{0} ମାସ"
+      },
+      "weeks": {
+        "one": "{0} ସପ୍ତାହ",
+        "other": "{0} ସପ୍ତାହ"
+      },
+      "days": {
+        "one": "{0} ଦିନ",
+        "other": "{0} ଦିନ"
+      },
+      "hours": {
+        "one": "{0} ଘଣ୍ଟା",
+        "other": "{0} ଘଣ୍ଟା"
+      },
+      "minutes": {
+        "one": "{0} ମିନିଟ୍‌",
+        "other": "{0} ମିନିଟ୍‌"
+      },
+      "seconds": {
+        "one": "{0} ସେକେଣ୍ଡ",
+        "other": "{0} ସେକେଣ୍ଡ"
+      }
     }
-});
+  }
+};

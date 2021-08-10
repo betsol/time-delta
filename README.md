@@ -1,3 +1,4 @@
+
 # Node Time Delta
 
 [![npm version](https://badge.fury.io/js/time-delta.svg)][repo-npm]
@@ -17,65 +18,101 @@ Examples:
 
 ## Features
 
-- Supports ~688 locales by means of [CLDR][lib-cldr] (built-in). See the [full list][locales]
-- Provides three different time unit formats for each locale (`long`, `short`, `narrow`)
+- Supports 715 locales by means of [CLDR][lib-cldr] (built-in). See the [full list][locales]
+- Provides three different time unit formats for each locale: `long`, `short`, `narrow`
 - Falls back to another unit type format if preferred one is not present in the target locale
+- Supports both Node.js and browser environments
+- All formatting aspects are customizable
+- TypeScript support out of the box
+- Minimal possible production dependencies
+
+
+## Install
+
+`npm install --save time-delta`
 
 
 ## Usage
 
-1. Require library
-2. ???
-3. Format!
+### Node.js
 
+In Node.js environment library will load requested locales automatically.
 
-### Examples
+```js
+const timeDelta = require('time-delta');
 
-```javascript
-
-var timeDelta = require('./lib/time-delta.js');
-
-var instance = timeDelta.create({
-  locale: 'en' // default
+const instance = timeDelta.create({
+  locale: 'en', // default
 });
 
-var date1 = new Date('2015-04-01T21:00:00');
-var date2 = new Date('2015-04-01T23:17:10');
+const date1 = new Date('2015-04-01T21:00:00');
+const date2 = new Date('2015-04-01T23:17:10');
 
 // Outputs: "2 hours, 17 minutes".
 console.log(instance.format(date1, date2));
 
 ```
 
-See [demo.js][demo] for more examples.
+### Browser
 
+In Browser environment you will need to load each locale manually.
+This ensures minimal size of your application bundle.
 
-## Installation
+```js
+// Importing the library
+import * as timeDelta from 'time-delta';
 
-It's exactly like you've already guessed:
+// Importing locales that you want to use
+import enLocale from 'time-delta/locales/en';
+import ruLocale from 'time-delta/locales/ru';
 
-`npm install --save time-delta` or `npm install --save-dev time-delta`.
+// Registering locale
+timeDelta.addLocale(enLocale);
+
+// You can register multiple locales
+timeDelta.addLocale([enLocale, ruLocale]);
+
+// Creating an instance
+const instance = timeDelta.create({
+  locale: 'en', // default
+});
+
+const date1 = new Date('2015-04-01T21:00:00');
+const date2 = new Date('2015-04-01T23:17:10');
+
+// Outputs: "2 hours, 17 minutes".
+console.log(instance.format(date1, date2));
+
+```
 
 
 ## Configuration
 
 The library accepts the following [configuration object][config]:
 
-| Option              | Type                               | Default                                     | Description
-|---------------------|------------------------------------|---------------------------------------------|-------------
-| locale              | `string`                           | `'en'`                                      | Locale to use. See the [full list][locales]
-| span                | `integer`                          | `2`                                         | How much time units to include in the result
-| delimiter           | `string`                           | `', '`                                      | Delimiter to use between time units
-| unitType            | `string`                           | `'long'`                                    | Unit type format. One of `long`, `short` or `narrow`
-| unitTypeLookupOrder | `array`                            | `['long', 'short', 'narrow']`               | Unit type lookup order (used for fallback)
+| Option              | Type      | Default                       | Description
+|---------------------|-----------|-------------------------------|-------------
+| locale              | `string`  | `'en'`                        | Locale to use. See the [full list][locales]
+| span                | `integer` | `2`                           | How much time units to include in the result
+| delimiter           | `string`  | `', '`                        | Delimiter to use between time units
+| unitType            | `string`  | `'long'`                      | Unit type format. One of `long`, `short` or `narrow`
+| unitTypeLookupOrder | `array`   | `['long', 'short', 'narrow']` | Unit type lookup order (used for fallback)
+| autoloadLocales     | `boolean` | `true`                        | Whether to auto-load locales in Node.js environment (doesn't work in browsers)
 
 You can pass config to factory method during instantiation:
 
-`var instance = timeDelta.create(myInstanceConfig);`
+```js
+const instance = timeDelta.create(config);
+```
 
-You can also specify it for each call to `format()`:
+You can also specify it when calling the `format()` function:
 
-`instance.format(date1, date2, myCallConfig);`
+```js
+instance.format(date1, date2, config);
+```
+
+Instance-level config is automatically inherited when calling `format()`,
+so you can customize the defaults.
 
 
 ## Changelog
@@ -85,15 +122,15 @@ Please see the [complete changelog][changelog] for list of changes.
 
 ## Contributors
 
-This library was made possible by [it's contributors][contributors].
+- [Slava Fomin II](https://github.com/slavafomin) (author)
 
 
-## Developer guide
+## Contributing
 
 Fork, clone, `npm install`.
 
-- Use `make locales` to build the locales
-- Use `make test` to test the library
+- Use `npm run build-locales` to download and build CLDR locales
+- Use `npm run test` to test the library
 
 If you do a PR, make sure to cover it with [tests][tests].
 
@@ -114,7 +151,7 @@ Cheers!
 
 ## Support
 
-If you like this library consider to add star on [GitHub repository][repo-gh]
+If you like this library, consider to add star on [GitHub repository][repo-gh]
 and on [NPM][repo-npm].
 
 Thank you!
@@ -124,7 +161,7 @@ Thank you!
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Slava Fomin II, BETTER SOLUTIONS
+ⓒ 2015—2021 Slava Fomin II
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -145,13 +182,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-  [changelog]: changelog.md
+  [changelog]: CHANGELOG.md
   [contributors]: https://github.com/betsol/time-delta/graphs/contributors
   [so-ask]: http://stackoverflow.com/questions/ask?tags=javascript,node.js,time,datediff
   [email]: mailto:s.fomin@betsol.ru
   [new-issue]: https://github.com/betsol/time-delta/issues/new
   [locales]: docs/locales.md
-  [demo]: demo.js
   [config]: https://github.com/betsol/time-delta/blob/master/lib/time-delta.js#L23
   [tests]: test/tests.js
   [lib-cldr]: https://github.com/papandreou/node-cldr
