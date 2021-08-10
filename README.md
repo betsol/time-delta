@@ -2,7 +2,7 @@
 # Node Time Delta
 
 [![npm version](https://badge.fury.io/js/time-delta.svg)][repo-npm]
-[![Build Status](https://travis-ci.org/betsol/time-delta.svg)][travis]
+[![Build Status](https://api.travis-ci.com/betsol/time-delta.svg?branch=master)][travis]
 
 Formats difference between two dates as a human-readable string in almost any language.
 
@@ -193,4 +193,4 @@ THE SOFTWARE.
   [lib-cldr]: https://github.com/papandreou/node-cldr
   [repo-gh]: https://github.com/betsol/time-delta
   [repo-npm]: https://www.npmjs.com/package/time-delta
-  [travis]: https://travis-ci.org/betsol/time-delta
+  [travis]: https://travis-ci.com/github/betsol/time-delta
