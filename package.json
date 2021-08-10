@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run build-locales",
     "build-locales": "./bin/build-locales.js",
-    "test": "NODE_ENV=test mocha --reporter spec"
+    "test": "mocha"
   },
   "license": "MIT",
   "author": "Slava Fomin II <slava@fomin.io>",
