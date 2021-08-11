@@ -187,7 +187,7 @@ THE SOFTWARE.
   [changelog]: CHANGELOG.md
   [contributors]: https://github.com/betsol/time-delta/graphs/contributors
   [so-ask]: http://stackoverflow.com/questions/ask?tags=javascript,node.js,time,datediff
-  [email]: mailto:s.fomin@betsol.ru
+  [email]: mailto:slava@fomin.io
   [new-issue]: https://github.com/betsol/time-delta/issues/new
   [locales]: docs/locales.md
   [config]: https://github.com/betsol/time-delta/blob/master/lib/time-delta.js#L23
