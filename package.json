@@ -19,14 +19,14 @@
     "node": ">=12"
   },
   "main": "index.js",
-  "types": "index.d.ts",
+  "types": "types/index.d.ts",
   "files": [
     "docs/",
     "lib/",
     "locales/",
+    "types/",
     "README.md",
     "CHANGELOG.md",
-    "index.d.ts",
     "index.js"
   ],
   "keywords": [

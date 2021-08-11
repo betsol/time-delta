@@ -1,4 +1,7 @@
 
+/// <reference path="./locales.d.ts" />
+
+
 export type LocaleId = string;
 
 export type UnitType = (
@@ -16,7 +19,7 @@ export interface Config {
   autoloadLocales?: boolean,
 }
 
-export interface LocaleData {
+export interface Locale {
   id: LocaleId;
   data: any;
 }
@@ -27,6 +30,6 @@ export interface Formatter {
 
 export function create(config?: Config): Formatter;
 
-export function addLocale(localeData: (LocaleData | LocaleData[]));
+export function addLocale(localeData: (Locale | Locale[]));
 
 export const defaultConfig: Config;
