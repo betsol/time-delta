@@ -46,7 +46,7 @@
   ],
   "dependencies": {
     "is-node": "^1.0.2",
-    "numerous": "^1.0.3"
+    "numerous": "^2.0.0"
   },
   "devDependencies": {
     "cldr": "^7.1.0",
