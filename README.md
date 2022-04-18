@@ -63,16 +63,22 @@ This ensures minimal size of your application bundle.
 ```js
 // Importing the library
 import * as timeDelta from 'time-delta';
+import * as numerous from 'numerous';
 
 // Importing locales that you want to use
 import enLocale from 'time-delta/locales/en';
+import numerousEnLocale from 'numerous/locales/en';
 import ruLocale from 'time-delta/locales/ru';
+import numerousRuLocale from 'numerous/locales/ru';
 
 // Registering locale
 timeDelta.addLocale(enLocale);
+numerous.addLocale(numerousEnLocale);
+
 
 // You can register multiple locales
 timeDelta.addLocale([enLocale, ruLocale]);
+timeDelta.addLocale([numerousEnLocale, numerousRuLocale]);
 
 // Creating an instance
 const instance = timeDelta.create({
