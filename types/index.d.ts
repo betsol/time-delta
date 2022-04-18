@@ -25,11 +25,18 @@ export interface Locale {
 }
 
 export interface Formatter {
+  /**
+   *  Returns difference between two dates as a text string.
+   */
   format(firstDate: Date | number, secondDate: Date | number, options?: Config): string;
 }
 
 export function create(config?: Config): Formatter;
 
+/**
+ * Adds pluralization data for the specified locale.
+ * Should be called in browser.
+ */
 export function addLocale(localeData: (Locale | Locale[]));
 
 export const defaultConfig: Config;
