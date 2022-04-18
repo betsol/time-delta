@@ -25,7 +25,7 @@ export interface Locale {
 }
 
 export interface Formatter {
-  format(firstDate: Date, secondDate: Date, options?: Config);
+  format(firstDate: Date, secondDate: Date, options?: Config): string;
 }
 
 export function create(config?: Config): Formatter;
