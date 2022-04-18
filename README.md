@@ -38,7 +38,7 @@ Formats difference between two dates as a human-readable string in almost any la
 
 ### Node.js
 
-In Node.js environment library will load requested locales automatically.
+In Node.js environment library will load requested locales automatically from a relative path.
 
 ```js
 const timeDelta = require('time-delta');
@@ -76,7 +76,8 @@ timeDelta.addLocale([enLocale, ruLocale]);
 
 // Creating an instance
 const instance = timeDelta.create({
-  locale: 'en', // default
+  locale: 'en',
+  autoloadLocales: false
 });
 
 const date1 = new Date('2015-04-01T21:00:00');
