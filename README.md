@@ -47,11 +47,20 @@ const instance = timeDelta.create({
   locale: 'en', // default
 });
 
+// Show the difference between two date objects
 const date1 = new Date('2015-04-01T21:00:00');
 const date2 = new Date('2015-04-01T23:17:10');
 
 // Outputs: "2 hours, 17 minutes".
 console.log(instance.format(date1, date2));
+
+
+// Show the difference when calculated in milliseconds
+const diff_in_ms = date2 - date1;
+
+// Outputs: "2 hours, 17 minutes".
+console.log(instance.format_ms(date1, date2));
+
 
 ```
 

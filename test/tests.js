@@ -114,6 +114,7 @@ describe('Time delta module', function () {
       const date1 = new Date('2015-04-01T21:00:00');
       const date2 = new Date('2015-04-01T23:17:10');
       const date3 = new Date('2016-07-12T14:10:10');
+      const date_1_2_ms = date2 - date1;
 
       const instance = timeDelta.create({
         locale: 'en',
@@ -123,6 +124,12 @@ describe('Time delta module', function () {
         span: 3,
       }))
         .to.equal('2 hours, 17 minutes, 10 seconds')
+      ;
+
+      expect(instance.format_ms(date_1_2_ms, {
+        span: 3,
+      }))
+          .to.equal('2 hours, 17 minutes, 10 seconds')
       ;
 
       expect(instance.format(date1, date2, {
