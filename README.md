@@ -87,7 +87,7 @@ numerous.addLocale(numerousEnLocale);
 
 // You can register multiple locales
 timeDelta.addLocale([enLocale, ruLocale]);
-timeDelta.addLocale([numerousEnLocale, numerousRuLocale]);
+numerous.registerLocale([numerousEnLocale, numerousRuLocale]);
 
 // Creating an instance
 const instance = timeDelta.create({
