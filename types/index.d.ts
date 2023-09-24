@@ -29,6 +29,11 @@ export interface Formatter {
    *  Returns difference between two dates as a text string.
    */
   format(firstDate: Date | number, secondDate: Date | number, options?: Config): string;
+
+  /**
+   *  Returns a millisecond value as a text string.
+   */
+  format_ms(msDifference: number, options?: Config): string;
 }
 
 export function create(config?: Config): Formatter;
