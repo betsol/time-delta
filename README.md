@@ -38,7 +38,7 @@ Formats difference between two dates as a human-readable string in almost any la
 
 ### Node.js
 
-In Node.js environment library will load requested locales automatically.
+In Node.js environment library will load requested locales automatically from a relative path.
 
 ```js
 const timeDelta = require('time-delta');
@@ -47,11 +47,20 @@ const instance = timeDelta.create({
   locale: 'en', // default
 });
 
+// Show the difference between two date objects
 const date1 = new Date('2015-04-01T21:00:00');
 const date2 = new Date('2015-04-01T23:17:10');
 
 // Outputs: "2 hours, 17 minutes".
 console.log(instance.format(date1, date2));
+
+
+// Show the difference when calculated in milliseconds
+const diff_in_ms = date2 - date1;
+
+// Outputs: "2 hours, 17 minutes".
+console.log(instance.format_ms(date1, date2));
+
 
 ```
 
@@ -63,20 +72,27 @@ This ensures minimal size of your application bundle.
 ```js
 // Importing the library
 import * as timeDelta from 'time-delta';
+import * as numerous from 'numerous';
 
 // Importing locales that you want to use
 import enLocale from 'time-delta/locales/en';
+import numerousEnLocale from 'numerous/locales/en';
 import ruLocale from 'time-delta/locales/ru';
+import numerousRuLocale from 'numerous/locales/ru';
 
 // Registering locale
 timeDelta.addLocale(enLocale);
+numerous.addLocale(numerousEnLocale);
+
 
 // You can register multiple locales
 timeDelta.addLocale([enLocale, ruLocale]);
+numerous.registerLocale([numerousEnLocale, numerousRuLocale]);
 
 // Creating an instance
 const instance = timeDelta.create({
-  locale: 'en', // default
+  locale: 'en',
+  autoloadLocales: false
 });
 
 const date1 = new Date('2015-04-01T21:00:00');
