@@ -1,6 +1,6 @@
 {
   "name": "time-delta",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Formats difference between two dates as a human-readable string in almost any language",
   "scripts": {
     "build": "npm run build-locales",
@@ -46,14 +46,14 @@
   ],
   "dependencies": {
     "is-node": "^1.0.2",
-    "numerous": "^1.0.3"
+    "numerous": "^2.0.0"
   },
   "devDependencies": {
-    "cldr": "^7.1.0",
-    "del": "^6.0.0",
+    "cldr": "^7.4.1",
+    "del": "^7.1.0",
     "expect.js": "^0.3.1",
     "js-beautify": "^1.14.0",
-    "mocha": "^9.0.3",
+    "mocha": "10.1.0",
     "p-limit": "^3.1.0"
   }
 }
